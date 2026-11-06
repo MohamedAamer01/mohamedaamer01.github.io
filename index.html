@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohamed Aamer – IA et Science des Données</title>
+<meta name="description" content="Portfolio de Mohamed Aamer, étudiant en Master 2 Informatique (IA et Science des Données), à la recherche d’un stage PFE.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">Mohamed Aamer</a>
+    <nav aria-label="Navigation principale">
+      <a href="#projets" data-i18n="nav.projects">Projets</a>
+      <a href="#parcours" data-i18n="nav.path">Parcours</a>
+      <a href="#competences" data-i18n="nav.skills">Compétences</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <button id="lang" class="mini" type="button" aria-label="Changer de langue">EN</button>
+      <button id="theme" class="mini" type="button" aria-label="Changer de thème">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="name">
+    <canvas id="knn" aria-hidden="true"></canvas>
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="role" data-i18n="hero.role">Étudiant en Master 2, IA et Science des Données</p>
+        <h1 id="name">Mohamed<br>Aamer</h1>
+        <p class="lead" data-i18n="hero.lead">Je conçois des modèles de classification et des systèmes RAG. Je recherche un stage PFE en IA et recherche appliquée.</p>
+        <div class="btns">
+          <a class="btn primary" href="cv.pdf" download data-i18n="hero.cv">Télécharger mon CV</a>
+          <a class="btn" href="#contact" data-i18n="hero.contact">Me contacter</a>
+        </div>
+        <div class="ctl">
+          <p data-i18n="hero.hint">Survolez le fond : un point de requête est classé par ses k plus proches voisins. Cliquez pour ajouter un point.</p>
+          <div class="kbox" role="group" aria-label="Valeur de k">
+            <span data-i18n="hero.k">k voisins</span>
+            <button class="mini kb" data-k="1" type="button">1</button>
+            <button class="mini kb" data-k="5" type="button" aria-pressed="true">5</button>
+            <button class="mini kb" data-k="9" type="button">9</button>
+            <button class="mini" id="reset" type="button" data-i18n="hero.reset">Réinitialiser</button>
+          </div>
+        </div>
+      </div>
+      <img class="portrait" src="Mohamed_Aamer_photo.jpeg" alt="Portrait de Mohamed Aamer" fetchpriority="high">
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section id="projets">
+      <h2 data-i18n="nav.projects">Projets</h2>
+      <div class="grid">
+        <article class="card">
+          <h3 data-i18n="p1.t">Reconnaissance biométrique de l’iris</h3>
+          <p class="meta" data-i18n="p1.m">2023–2024, projet de fin de licence</p>
+          <ul>
+            <li data-i18n="p1.a">Système de reconnaissance biométrique fondé sur des réseaux convolutifs.</li>
+            <li data-i18n="p1.b">Prétraitement des images, entraînement et intégration du modèle.</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>TensorFlow</li><li>OpenCV</li><li>CNN</li></ul>
+        </article>
+        <article class="card">
+          <h3 data-i18n="p2.t">Classification d’images : deep learning et machine learning</h3>
+          <p class="meta">2026</p>
+          <ul>
+            <li data-i18n="p2.a">Comparaison d’un CNN personnalisé, de VGG16, de ResNet50 et d’un Vision Transformer sur un jeu d’images médicales déséquilibré, avec un protocole d’évaluation commun.</li>
+            <li data-i18n="p2.b">Caractéristiques de couleur, texture et forme, puis KNN, SVM, arbres de décision et méthodes d’ensemble (Bagging, Boosting, Stacking).</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>scikit-learn</li><li>TensorFlow</li><li>ViT</li></ul>
+        </article>
+        <article class="card">
+          <h3 data-i18n="p3.t">Assistant intelligent de génération de code</h3>
+          <p class="meta">2026</p>
+          <ul>
+            <li data-i18n="p3.a">Assistant de génération de code Python et Java fondé sur la génération augmentée par récupération (RAG).</li>
+            <li data-i18n="p3.b">Embeddings sémantiques, index FAISS, Google Gemini et interface Streamlit.</li>
+          </ul>
+          <ul class="tags"><li>RAG</li><li>FAISS</li><li>Gemini</li><li>Streamlit</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="parcours">
+      <h2 data-i18n="nav.path">Parcours</h2>
+      <ol class="time">
+        <li><b data-i18n="t1.t">Licence, Sciences Mathématiques et Informatique</b><span>2022–2025 · Université Moulay Ismaïl, Meknès</span></li>
+        <li><b data-i18n="t2.t">Stagiaire en ingénierie réseau, Inwi</b><span data-i18n="t2.m">Été 2024 · deux mois · surveillance des équipements, analyse des données de performance, rapports techniques</span></li>
+        <li><b data-i18n="t3.t">Master 1, IA et Science des Données</b><span>2025–2026 · USMBA, Fès</span></li>
+        <li><b data-i18n="t4.t">Master 2, IA et Science des Données</b><span data-i18n="t4.m">2026–2027 · USMBA, Fès · double diplomation avec l’Université Sorbonne Paris Nord</span></li>
+      </ol>
+    </section>
+
+    <section id="competences">
+      <h2 data-i18n="nav.skills">Compétences</h2>
+      <dl class="skills">
+        <div><dt data-i18n="s1">Programmation</dt><dd>Python, Java, SQL, PL/SQL, R</dd></div>
+        <div><dt data-i18n="s2">IA et machine learning</dt><dd data-i18n="s2d">Classification, CNN, deep learning, évaluation de modèles</dd></div>
+        <div><dt data-i18n="s3">LLM et recherche sémantique</dt><dd>RAG, embeddings, FAISS, Google Gemini</dd></div>
+        <div><dt data-i18n="s4">Bibliothèques</dt><dd>scikit-learn, TensorFlow/Keras, Pandas, NumPy, OpenCV, Streamlit, Matplotlib</dd></div>
+        <div><dt data-i18n="s5">Outils</dt><dd>Git, Jupyter Notebook, Google Colab</dd></div>
+        <div><dt data-i18n="s6">Langues</dt><dd data-i18n="s6d">Arabe (langue maternelle), français (B2), anglais (B2)</dd></div>
+      </dl>
+      <h3 class="sub" data-i18n="c.t">Certifications</h3>
+      <ul class="plain">
+        <li>Oracle Cloud Infrastructure for Sunbird Ed Specialty (2026)</li>
+        <li data-i18n="c.1">Introduction à la science des données, Cisco (2025)</li>
+        <li data-i18n="c.2">Notions fondamentales des réseaux, Cisco (2025)</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2 data-i18n="nav.contact">Contact</h2>
+      <p data-i18n="ct.p">Je suis ouvert aux propositions de stage PFE en intelligence artificielle , Science de donnnées et recherche appliquée.</p>
+      <p class="links">
+        <a href="mailto:mohamed.aamer@usmba.ac.ma">mohamed.aamer@usmba.ac.ma</a>
+        <a href="https://www.linkedin.com/in/mohamed-aamer-94a72a2b5" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/MohamedAamer01" rel="noopener">GitHub</a>
+      </p>
+    </section>
+  </div>
+</main>
+
+<footer><div class="wrap">© 2026 Mohamed Aamer · Fès, Maroc</div></footer>
+<script src="script.js"></script>
+</body>
+</html>
