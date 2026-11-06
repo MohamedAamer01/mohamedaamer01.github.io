@@ -3,8 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mohamed Aamer – IA et Science des Données</title>
-<meta name="description" content="Portfolio de Mohamed Aamer, étudiant en Master 2 Informatique (IA et Science des Données), à la recherche d’un stage PFE.">
+<title>Mohamed Aamer | IA, Machine Learning & Data Science</title>
+<meta name="description" content="Portfolio de Mohamed Aamer, étudiant en Master 2 Informatique — Web Intelligence et Science des Données. Projets en IA, computer vision et systèmes RAG. En recherche d’un stage PFE.">
+<meta name="theme-color" content="#f6f8fc">
+<link rel="canonical" href="https://mohamedaamer01.github.io/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mohamedaamer01.github.io/">
+<meta property="og:title" content="Mohamed Aamer | AI & Data Science">
+<meta property="og:description" content="Portfolio de Mohamed Aamer — projets en IA, machine learning, computer vision et RAG. En recherche d’un stage PFE.">
+<meta property="og:image" content="https://mohamedaamer01.github.io/Mohamed_Aamer_photo.jpeg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Portfolio de Mohamed Aamer — projets en IA, machine learning, computer vision et RAG.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,14 +26,18 @@
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="#top">Mohamed Aamer</a>
-    <nav aria-label="Navigation principale">
+    <button id="menu-toggle" class="mini menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu" data-i18n-aria="nav.openMenu" data-i18n="nav.menu">Menu</button>
+    <nav id="main-nav" aria-label="Navigation principale" data-i18n-aria="nav.label">
       <a href="#projets" data-i18n="nav.projects">Projets</a>
-      <a href="#parcours" data-i18n="nav.path">Parcours</a>
+      <a href="#experience" data-i18n="nav.experience">Expérience</a>
+      <a href="#parcours" data-i18n="nav.education">Formation</a>
       <a href="#competences" data-i18n="nav.skills">Compétences</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
-      <button id="lang" class="mini" type="button" aria-label="Changer de langue">EN</button>
-      <button id="theme" class="mini" type="button" aria-label="Changer de thème">◐</button>
     </nav>
+    <div class="bar-controls">
+      <button id="lang" class="mini" type="button" aria-label="Passer en anglais" data-i18n-aria="nav.language">EN</button>
+      <button id="theme" class="mini" type="button" aria-label="Changer de thème" data-i18n-aria="nav.theme">◐</button>
+    </div>
   </div>
 </header>
 
@@ -31,50 +46,81 @@
     <canvas id="knn" aria-hidden="true"></canvas>
     <div class="wrap hero-in">
       <div class="hero-copy">
-        <p class="role" data-i18n="hero.role">Étudiant en Master 2, IA et Science des Données</p>
+        <p class="role" data-i18n="hero.role">Futur ingénieur IA & Data Science · Master 2 Informatique</p>
         <h1 id="name">Mohamed<br>Aamer</h1>
-        <p class="lead" data-i18n="hero.lead">Je conçois des modèles de classification et des systèmes RAG. Je recherche un stage PFE en IA et recherche appliquée.</p>
+        <p class="hero-statement" data-i18n="hero.statement">Concevoir des systèmes intelligents grâce à l’IA et à la science des données.</p>
+        <p class="lead" data-i18n="hero.lead">Spécialité Web Intelligence et Science des Données à l’Université Sidi Mohamed Ben Abdellah, en double diplomation avec l’Université Sorbonne Paris Nord. Je m’intéresse au machine learning, à la vision par ordinateur et aux applications basées sur les LLM.</p>
+        <p class="availability"><span class="availability-dot" aria-hidden="true"></span><span data-i18n="hero.availability">À la recherche d’un stage PFE en France ou à l’international</span></p>
         <div class="btns">
-          <a class="btn" href="cv.pdf" target="_blank" rel="noopener" data-i18n="hero.readCv">Lire mon CV</a>
           <a class="btn primary" href="cv.pdf" download data-i18n="hero.cv">Télécharger mon CV</a>
-          <a class="btn" href="#contact" data-i18n="hero.contact">Me contacter</a>
+          <a class="btn" href="cv.pdf" target="_blank" rel="noopener" data-i18n="hero.readCv">Lire mon CV</a>
+          <a class="btn" href="#projets" data-i18n="hero.projects">Voir les projets</a>
         </div>
-        <div class="ctl">
+        <div class="hero-socials">
+          <a href="https://github.com/MohamedAamer01" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://ma.linkedin.com/in/mohamed-aamer-94a72a2b" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="mailto:mohamed.aamer@usmba.ac.ma" data-i18n="hero.email">Me contacter</a>
+        </div>
+        <details class="ctl">
+          <summary data-i18n="hero.demo">Explorer une démonstration interactive de KNN</summary>
           <p data-i18n="hero.hint">Survolez le fond : un point de requête est classé par ses k plus proches voisins. Cliquez pour ajouter un point.</p>
-          <div class="kbox" role="group" aria-label="Valeur de k">
+          <div class="kbox" role="group" aria-label="Valeur de k" data-i18n-aria="hero.kGroup">
             <span data-i18n="hero.k">k voisins</span>
             <button class="mini kb" data-k="1" type="button">1</button>
             <button class="mini kb" data-k="5" type="button" aria-pressed="true">5</button>
             <button class="mini kb" data-k="9" type="button">9</button>
             <button class="mini" id="reset" type="button" data-i18n="hero.reset">Réinitialiser</button>
           </div>
-        </div>
+        </details>
       </div>
-      <img class="portrait" src="Mohamed_Aamer_photo.jpeg" alt="Portrait de Mohamed Aamer" fetchpriority="high">
+      <img class="portrait" src="Mohamed_Aamer_photo.jpeg" alt="Portrait de Mohamed Aamer" fetchpriority="high" decoding="async" width="1024" height="1536">
     </div>
   </section>
 
   <div class="wrap">
     <section id="projets">
       <h2 data-i18n="nav.projects">Projets</h2>
+      <p class="section-intro" data-i18n="projects.intro">Études de cas sélectionnées : contexte, approche technique et technologies employées.</p>
       <div class="project-carousel" id="project-carousel" role="region" aria-roledescription="carousel" aria-label="Projets" data-i18n-aria="projects.label" hidden>
         <div class="project-viewport" id="project-viewport" tabindex="0" aria-label="Projet affiché. Utilisez les flèches gauche et droite pour naviguer." data-i18n-aria="projects.keyboard">
-          <article class="card project-slide" role="group" aria-roledescription="diapositive" aria-label="1 / 3">
-            <div class="project-topline"><span class="project-number">01</span><p class="meta" data-i18n="p1.m">2023–2024 · Projet de fin de licence</p></div>
-            <h3 data-i18n="p1.t">Reconnaissance biométrique de l’iris</h3>
+          <article class="card project-slide" role="group" aria-roledescription="diapositive" aria-label="1 / 4">
+            <div class="project-topline"><span class="project-number">01</span><p class="meta" data-i18n="rag.meta">Assistant IA · Python & Java</p></div>
+            <h3 data-i18n="rag.title">Assistant de génération de code fondé sur le RAG</h3>
             <h4 data-i18n="project.description">Description</h4>
-            <p data-i18n="p1.desc">Conception d’un système de reconnaissance biométrique de l’iris basé sur les réseaux de neurones convolutifs.</p>
+            <p data-i18n="rag.desc">Application qui retrouve des exemples de code pertinents dans une base locale avant de générer une réponse contextualisée en Python ou Java.</p>
             <h4 data-i18n="project.highlights">Travail réalisé</h4>
-            <ul class="project-points">
-              <li data-i18n="p1.a">Prétraitement des images d’iris pour préparer les données à l’apprentissage.</li>
-              <li data-i18n="p1.b">Entraînement et intégration d’un modèle CNN dans le système de reconnaissance.</li>
-            </ul>
+            <figure class="architecture">
+              <figcaption data-i18n="rag.architecture">Architecture vérifiée du système</figcaption>
+              <div class="arch-lane">
+                <span class="arch-lane-label" data-i18n="rag.indexLane">Préparation de l’index</span>
+                <ol class="arch-flow">
+                  <li><strong data-i18n="rag.data">Exemples de code</strong><span>Python · Java</span></li>
+                  <li><strong data-i18n="rag.chunk">Découpage</strong><span>RecursiveCharacterTextSplitter</span></li>
+                  <li><strong data-i18n="rag.embed">Embeddings</strong><span>BAAI/bge-base-en-v1.5</span></li>
+                  <li><strong data-i18n="rag.store">Index vectoriel</strong><span>FAISS</span></li>
+                </ol>
+              </div>
+              <div class="arch-lane">
+                <span class="arch-lane-label" data-i18n="rag.queryLane">Traitement d’une requête</span>
+                <ol class="arch-flow">
+                  <li><strong data-i18n="rag.question">Question</strong><span data-i18n="rag.language">Détection du langage</span></li>
+                  <li><strong data-i18n="rag.search">Recherche</strong><span data-i18n="rag.filter">Similarité · filtre des métadonnées · Top‑K</span></li>
+                  <li><strong data-i18n="rag.prompt">Contexte + prompt</strong><span data-i18n="rag.context">Construction du prompt</span></li>
+                  <li><strong>Gemini 2.5 Flash</strong><span data-i18n="rag.generation">Génération de code</span></li>
+                  <li><strong>Streamlit</strong><span data-i18n="rag.response">Réponse interactive</span></li>
+                </ol>
+              </div>
+            </figure>
             <div class="project-tech">
               <h4 data-i18n="project.tech">Technologies et méthodes</h4>
-              <ul class="tags"><li>Python</li><li>TensorFlow</li><li>OpenCV</li><li>CNN</li></ul>
+              <ul class="tags"><li>Python</li><li>Java</li><li>LangChain</li><li>FAISS</li><li>HuggingFace Embeddings</li><li>Gemini 2.5 Flash</li><li>Streamlit</li></ul>
             </div>
+            <p class="project-links">
+              <a href="https://github.com/MohamedAamer01/rag-code-assistant" target="_blank" rel="noopener noreferrer" data-i18n="project.github">Voir le code sur GitHub</a>
+              <a href="https://github.com/MohamedAamer01/rag-code-assistant/tree/main/screens" target="_blank" rel="noopener noreferrer" data-i18n="project.screens">Voir les captures du projet</a>
+            </p>
           </article>
-          <article class="card project-slide" role="group" aria-roledescription="diapositive" aria-label="2 / 3" hidden>
+          <article class="card project-slide" role="group" aria-roledescription="diapositive" aria-label="2 / 4" hidden>
             <div class="project-topline"><span class="project-number">02</span><p class="meta">2026</p></div>
             <h3 data-i18n="p2.t">Classification d’images : deep learning et machine learning</h3>
             <h4 data-i18n="project.description">Description</h4>
@@ -89,19 +135,38 @@
               <ul class="tags"><li>Python</li><li>scikit-learn</li><li>TensorFlow</li><li>VGG16</li><li>ResNet50</li><li>ViT</li><li>KNN</li><li>SVM</li><li>Arbres de décision</li><li>Bagging</li><li>Boosting</li><li>Stacking</li></ul>
             </div>
           </article>
-          <article class="card project-slide" role="group" aria-roledescription="diapositive" aria-label="3 / 3" hidden>
-            <div class="project-topline"><span class="project-number">03</span><p class="meta">2026</p></div>
-            <h3 data-i18n="p3.t">Assistant intelligent de génération de code</h3>
+          <article class="card project-slide" role="group" aria-roledescription="diapositive" aria-label="3 / 4" hidden>
+            <div class="project-topline"><span class="project-number">03</span><p class="meta" data-i18n="darija.meta">Projet personnel · Application multi-plateforme</p></div>
+            <h3 data-i18n="darija.title">Traducteur anglais ↔ darija</h3>
             <h4 data-i18n="project.description">Description</h4>
-            <p data-i18n="p3.desc">Développement d’un assistant qui s’appuie sur la génération augmentée par récupération pour aider à générer du code en Python et en Java.</p>
+            <p data-i18n="darija.desc">Application de traduction entre l’anglais et le darija marocain, articulée autour d’une API Java, d’un client de bureau et d’une extension Chrome.</p>
             <h4 data-i18n="project.highlights">Travail réalisé</h4>
             <ul class="project-points">
-              <li data-i18n="p3.a">Mise en place d’une recherche sémantique à partir d’embeddings et d’un index vectoriel.</li>
-              <li data-i18n="p3.b">Connexion à Google Gemini et création d’une interface interactive avec Streamlit.</li>
+              <li data-i18n="darija.a">Intégration de l’API Gemini pour la traduction bidirectionnelle et gestion de l’écriture arabe RTL.</li>
+              <li data-i18n="darija.b">Développement d’un client Java Swing et d’une extension Chrome Manifest V3.</li>
             </ul>
             <div class="project-tech">
               <h4 data-i18n="project.tech">Technologies et méthodes</h4>
-              <ul class="tags"><li>Python</li><li>Java</li><li>RAG</li><li>Embeddings</li><li>FAISS</li><li>Google Gemini</li><li>Streamlit</li></ul>
+              <ul class="tags"><li>Java 17</li><li>Jakarta EE</li><li>JAX-RS</li><li>Java Swing</li><li>Gemini API</li><li>Chrome Extension</li><li>JavaScript</li></ul>
+            </div>
+            <p class="project-links">
+              <a href="https://github.com/MohamedAamer01/darija-translator-project" target="_blank" rel="noopener noreferrer" data-i18n="project.github">Voir le code sur GitHub</a>
+              <a href="https://drive.google.com/file/d/11AAK1Kyd3m1n73qChmRJ0HXhAWH2Wdif/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-i18n="darija.demo">Voir la démonstration vidéo</a>
+            </p>
+          </article>
+          <article class="card project-slide" role="group" aria-roledescription="diapositive" aria-label="4 / 4" hidden>
+            <div class="project-topline"><span class="project-number">04</span><p class="meta" data-i18n="iris.meta">2023–2024 · Projet de fin de licence</p></div>
+            <h3 data-i18n="iris.title">Reconnaissance biométrique de l’iris</h3>
+            <h4 data-i18n="project.description">Description</h4>
+            <p data-i18n="iris.desc">Conception d’un système de reconnaissance biométrique de l’iris basé sur les réseaux de neurones convolutifs.</p>
+            <h4 data-i18n="project.highlights">Travail réalisé</h4>
+            <ul class="project-points">
+              <li data-i18n="iris.a">Prétraitement des images d’iris pour préparer les données à l’apprentissage.</li>
+              <li data-i18n="iris.b">Entraînement et intégration d’un modèle CNN dans le système de reconnaissance.</li>
+            </ul>
+            <div class="project-tech">
+              <h4 data-i18n="project.tech">Technologies et méthodes</h4>
+              <ul class="tags"><li>Python</li><li>TensorFlow</li><li>OpenCV</li><li>CNN</li></ul>
             </div>
           </article>
         </div>
@@ -111,8 +176,9 @@
             <button class="project-dot" type="button" data-project="0" aria-label="Projet 1" aria-current="true" data-i18n-aria="projects.dot1"></button>
             <button class="project-dot" type="button" data-project="1" aria-label="Projet 2" aria-current="false" data-i18n-aria="projects.dot2"></button>
             <button class="project-dot" type="button" data-project="2" aria-label="Projet 3" aria-current="false" data-i18n-aria="projects.dot3"></button>
+            <button class="project-dot" type="button" data-project="3" aria-label="Projet 4" aria-current="false" data-i18n-aria="projects.dot4"></button>
           </div>
-          <output class="project-count" id="project-count" aria-live="polite" aria-atomic="true">1 / 3</output>
+          <output class="project-count" id="project-count" aria-live="polite" aria-atomic="true">1 / 4</output>
           <button class="mini project-nav" id="project-next" type="button" aria-label="Projet suivant" data-i18n-aria="projects.next"><span data-i18n="projects.next">Suivant</span><span aria-hidden="true">→</span></button>
         </div>
         <p class="project-hint" data-i18n="projects.hint">Balayez pour découvrir le projet suivant, ou utilisez les flèches du clavier.</p>
@@ -120,61 +186,76 @@
       <noscript>
       <div class="grid">
         <article class="card">
-          <h3 data-i18n="p1.t">Reconnaissance biométrique de l’iris</h3>
-          <p class="meta" data-i18n="p1.m">2023–2024, projet de fin de licence</p>
-          <ul>
-            <li data-i18n="p1.a">Système de reconnaissance biométrique fondé sur des réseaux convolutifs.</li>
-            <li data-i18n="p1.b">Prétraitement des images, entraînement et intégration du modèle.</li>
-          </ul>
-          <ul class="tags"><li>Python</li><li>TensorFlow</li><li>OpenCV</li><li>CNN</li></ul>
+          <h3>Assistant de génération de code fondé sur le RAG</h3>
+          <p>Exemples de code → découpage et embeddings → recherche FAISS filtrée par métadonnées → Gemini 2.5 Flash → interface Streamlit.</p>
+          <ul class="tags"><li>Python</li><li>Java</li><li>LangChain</li><li>HuggingFace</li><li>FAISS</li><li>Gemini</li><li>Streamlit</li></ul>
+          <p><a href="https://github.com/MohamedAamer01/rag-code-assistant" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a></p>
         </article>
         <article class="card">
-          <h3 data-i18n="p2.t">Classification d’images : deep learning et machine learning</h3>
-          <p class="meta">2026</p>
-          <ul>
-            <li data-i18n="p2.a">Comparaison d’un CNN personnalisé, de VGG16, de ResNet50 et d’un Vision Transformer sur un jeu d’images médicales déséquilibré, avec un protocole d’évaluation commun.</li>
-            <li data-i18n="p2.b">Caractéristiques de couleur, texture et forme, puis KNN, SVM, arbres de décision et méthodes d’ensemble (Bagging, Boosting, Stacking).</li>
-          </ul>
+          <h3>Classification d’images médicales</h3>
+          <p>Étude comparative de modèles de machine learning et de deep learning sur un jeu de données déséquilibré.</p>
           <ul class="tags"><li>Python</li><li>scikit-learn</li><li>TensorFlow</li><li>ViT</li></ul>
         </article>
         <article class="card">
-          <h3 data-i18n="p3.t">Assistant intelligent de génération de code</h3>
-          <p class="meta">2026</p>
-          <ul>
-            <li data-i18n="p3.a">Assistant de génération de code Python et Java fondé sur la génération augmentée par récupération (RAG).</li>
-            <li data-i18n="p3.b">Embeddings sémantiques, index FAISS, Google Gemini et interface Streamlit.</li>
-          </ul>
-          <ul class="tags"><li>RAG</li><li>FAISS</li><li>Gemini</li><li>Streamlit</li></ul>
+          <h3>Traducteur anglais ↔ darija</h3>
+          <p>API Java avec client de bureau et extension Chrome pour la traduction bidirectionnelle via Gemini.</p>
+          <ul class="tags"><li>Java</li><li>Jakarta EE</li><li>Java Swing</li><li>Gemini</li><li>Chrome</li></ul>
+          <p><a href="https://github.com/MohamedAamer01/darija-translator-project" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a></p>
+        </article>
+        <article class="card">
+          <h3>Reconnaissance biométrique de l’iris</h3>
+          <p>Prétraitement d’images, entraînement et intégration d’un modèle de réseau convolutif.</p>
+          <ul class="tags"><li>Python</li><li>TensorFlow</li><li>OpenCV</li><li>CNN</li></ul>
         </article>
       </div>
       </noscript>
     </section>
 
+    <section id="experience">
+      <h2 data-i18n="nav.experience">Expérience professionnelle</h2>
+      <article class="experience-card">
+        <div class="experience-heading">
+          <div>
+            <p class="eyebrow" data-i18n="experience.label">Expérience</p>
+            <h3 data-i18n="t2.t">Stagiaire en ingénierie réseau</h3>
+            <p class="experience-company">Inwi · <span data-i18n="experience.city">Maroc</span></p>
+          </div>
+          <span class="experience-date" data-i18n="t2.period">Été 2024 · 2 mois</span>
+        </div>
+        <p data-i18n="experience.intro">Participation au suivi opérationnel et à l’analyse des performances des équipements réseau.</p>
+        <ul class="experience-points">
+          <li data-i18n="experience.one">Surveillance des équipements et contribution à la maintenance préventive.</li>
+          <li data-i18n="experience.two">Analyse des indicateurs de performance et aide au diagnostic des anomalies.</li>
+          <li data-i18n="experience.three">Rédaction de rapports techniques.</li>
+        </ul>
+      </article>
+    </section>
+
     <section id="parcours">
-      <h2 data-i18n="nav.path">Parcours</h2>
+      <h2 data-i18n="nav.education">Formation</h2>
       <ol class="time">
-        <li><b data-i18n="t1.t">Licence, Sciences Mathématiques et Informatique</b><span>2022–2025 · Université Moulay Ismaïl, Meknès</span></li>
-        <li><b data-i18n="t2.t">Stagiaire en ingénierie réseau, Inwi</b><span data-i18n="t2.m">Été 2024 · deux mois · surveillance des équipements, analyse des données de performance, rapports techniques</span></li>
-        <li><b data-i18n="t3.t">Master 1, IA et Science des Données</b><span>2025–2026 · USMBA, Fès</span></li>
-        <li><b data-i18n="t4.t">Master 2, IA et Science des Données</b><span data-i18n="t4.m">2026–2027 · USMBA, Fès · double diplomation avec l’Université Sorbonne Paris Nord</span></li>
+        <li><b data-i18n="t4.t">Master 2 Informatique — Web Intelligence et Science des Données</b><span data-i18n="t4.m">2026–2027 · Université Sidi Mohamed Ben Abdellah, Fès · double diplomation avec l’Université Sorbonne Paris Nord</span></li>
+        <li><b data-i18n="t3.t">Master 1 — Web Intelligence et Science des Données</b><span>2025–2026 · Université Sidi Mohamed Ben Abdellah, Fès</span></li>
+        <li><b data-i18n="t1.t">Licence — Sciences Mathématiques et Informatique</b><span>2022–2025 · Université Moulay Ismaïl, Meknès</span></li>
       </ol>
     </section>
 
     <section id="competences">
       <h2 data-i18n="nav.skills">Compétences</h2>
-      <dl class="skills">
-        <div><dt data-i18n="s1">Programmation</dt><dd>Python, Java, SQL, PL/SQL, R</dd></div>
-        <div><dt data-i18n="s2">IA et machine learning</dt><dd data-i18n="s2d">Classification, CNN, deep learning, évaluation de modèles</dd></div>
-        <div><dt data-i18n="s3">LLM et recherche sémantique</dt><dd>RAG, embeddings, FAISS, Google Gemini</dd></div>
-        <div><dt data-i18n="s4">Bibliothèques</dt><dd>scikit-learn, TensorFlow/Keras, Pandas, NumPy, OpenCV, Streamlit, Matplotlib</dd></div>
-        <div><dt data-i18n="s5">Outils</dt><dd>Git, Jupyter Notebook, Google Colab</dd></div>
-        <div><dt data-i18n="s6">Langues</dt><dd data-i18n="s6d">Arabe (langue maternelle), français (B2), anglais (B2)</dd></div>
-      </dl>
+      <div class="skill-groups">
+        <article class="skill-group"><h3 data-i18n="skills.programming">Programmation</h3><ul class="tags"><li>Python</li><li>Java</li><li>SQL</li><li>PL/SQL</li><li>R</li></ul></article>
+        <article class="skill-group"><h3 data-i18n="skills.ml">Machine learning & deep learning</h3><ul class="tags"><li>scikit-learn</li><li>TensorFlow</li><li>Keras</li><li>CNN</li><li>VGG16</li><li>ResNet50</li><li>Vision Transformer</li><li>KNN</li><li>SVM</li><li>Bagging · Boosting · Stacking</li></ul></article>
+        <article class="skill-group"><h3 data-i18n="skills.data">Data science & vision par ordinateur</h3><ul class="tags"><li>Pandas</li><li>NumPy</li><li>Matplotlib</li><li>OpenCV</li><li data-i18n="skills.preprocessing">Prétraitement</li><li data-i18n="skills.features">Extraction de caractéristiques</li><li data-i18n="skills.evaluation">Évaluation de modèles</li></ul></article>
+        <article class="skill-group"><h3 data-i18n="skills.llm">LLM & systèmes intelligents</h3><ul class="tags"><li>RAG</li><li>LangChain</li><li>HuggingFace Embeddings</li><li>FAISS</li><li>Google Gemini</li><li data-i18n="skills.search">Recherche sémantique</li></ul></article>
+        <article class="skill-group"><h3 data-i18n="skills.tools">Développement & outils</h3><ul class="tags"><li>Git</li><li>GitHub</li><li>Jupyter Notebook</li><li>Google Colab</li><li>Streamlit</li><li>Java Swing</li></ul></article>
+      </div>
+      <p class="interests"><strong data-i18n="skills.interests">Centres d’intérêt :</strong> <span data-i18n="skills.interestList">intelligence artificielle, systèmes intelligents, knowledge graphs et recherche appliquée.</span></p>
+      <div class="languages"><strong data-i18n="s6">Langues</strong><span data-i18n="s6d">Arabe (langue maternelle), français (B2), anglais (B2)</span></div>
       <h3 class="sub" data-i18n="c.t">Certifications</h3>
       <div class="cert-grid">
         <article class="cert-card">
           <a class="cert-preview" href="Certification/oracle_cloud_infrastracture.png" target="_blank" rel="noopener" aria-label="Voir le certificat Oracle en grand" data-i18n-aria="cert.viewOracle">
-            <img src="Certification/oracle_cloud_infrastracture.png" alt="Certificat Oracle Certified Specialty — Oracle Cloud Infrastructure for Sunbird Ed Specialty" data-i18n-alt="cert.altOracle" loading="lazy">
+            <img src="Certification/oracle_cloud_infrastracture.png" alt="Certificat Oracle Certified Specialty — Oracle Cloud Infrastructure for Sunbird Ed Specialty" data-i18n-alt="cert.altOracle" loading="lazy" decoding="async">
             <span class="cert-open" aria-hidden="true" data-i18n="cert.open">Ouvrir le certificat ↗</span>
           </a>
           <div class="cert-info">
@@ -186,7 +267,7 @@
         </article>
         <article class="cert-card">
           <a class="cert-preview" href="Certification/introduction_to_Data_Science.png" target="_blank" rel="noopener" aria-label="Voir le certificat Introduction to Data Science en grand" data-i18n-aria="cert.viewData">
-            <img src="Certification/introduction_to_Data_Science.png" alt="Certificat Cisco Networking Academy — Introduction to Data Science" data-i18n-alt="cert.altData" loading="lazy">
+            <img src="Certification/introduction_to_Data_Science.png" alt="Certificat Cisco Networking Academy — Introduction to Data Science" data-i18n-alt="cert.altData" loading="lazy" decoding="async">
             <span class="cert-open" aria-hidden="true" data-i18n="cert.open">Ouvrir le certificat ↗</span>
           </a>
           <div class="cert-info">
@@ -198,7 +279,7 @@
         </article>
         <article class="cert-card">
           <a class="cert-preview" href="Certification/networking_basics.png" target="_blank" rel="noopener" aria-label="Voir le certificat Networking Basics en grand" data-i18n-aria="cert.viewNetworking">
-            <img src="Certification/networking_basics.png" alt="Certificat Cisco Networking Academy — Networking Basics" data-i18n-alt="cert.altNetworking" loading="lazy">
+            <img src="Certification/networking_basics.png" alt="Certificat Cisco Networking Academy — Networking Basics" data-i18n-alt="cert.altNetworking" loading="lazy" decoding="async">
             <span class="cert-open" aria-hidden="true" data-i18n="cert.open">Ouvrir le certificat ↗</span>
           </a>
           <div class="cert-info">
@@ -213,11 +294,12 @@
 
     <section id="contact">
       <h2 data-i18n="nav.contact">Contact</h2>
-      <p data-i18n="ct.p">Je suis ouvert aux propositions de stage PFE en intelligence artificielle , Science de donnnées et recherche appliquée.</p>
+      <h3 class="contact-statement" data-i18n="contact.headline">Construisons ensemble des solutions intelligentes.</h3>
+      <p data-i18n="ct.p">Je recherche activement un stage PFE en ingénierie IA, science des données ou recherche appliquée, en France ou à l’international.</p>
       <p class="links">
         <a href="mailto:mohamed.aamer@usmba.ac.ma">mohamed.aamer@usmba.ac.ma</a>
-        <a href="https://www.linkedin.com/in/mohamed-aamer-94a72a2b5" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/MohamedAamer01" rel="noopener">GitHub</a>
+        <a href="https://ma.linkedin.com/in/mohamed-aamer-94a72a2b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/MohamedAamer01" target="_blank" rel="noopener noreferrer">GitHub</a>
       </p>
     </section>
   </div>

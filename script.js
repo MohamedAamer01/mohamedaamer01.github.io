@@ -1,6 +1,7 @@
 (function () {
   "use strict";
   var root = document.documentElement;
+  root.classList.add("js-enabled");
 
   /* ---------- Thème ---------- */
   var saved = null;
@@ -15,19 +16,60 @@
 
   /* ---------- Langue FR / EN ---------- */
   var EN = {
-    "nav.projects": "Projects", "nav.path": "Path", "nav.skills": "Skills", "nav.contact": "Contact",
-    "hero.role": "Master’s student (M2), AI and Data Science",
-    "hero.lead": "I build classification models and RAG systems. I am looking for a final-year internship (PFE) in AI and applied research.",
-    "hero.readCv": "View my CV", "hero.cv": "Download my CV", "hero.contact": "Contact me",
-    "hero.hint": "Hover the background: a query point is classified by its k nearest neighbours. Click to add a point.",
-    "hero.k": "k neighbours", "hero.reset": "Reset",
+    "nav.projects": "Projects", "nav.experience": "Experience", "nav.education": "Education",
+    "nav.path": "Education", "nav.skills": "Skills", "nav.contact": "Contact",
+    "nav.label": "Main navigation", "nav.language": "Switch to French",
+    "nav.openMenu": "Open navigation menu", "nav.closeMenu": "Close navigation menu",
+    "nav.theme": "Toggle color theme", "nav.menu": "Menu",
+    "hero.role": "Aspiring AI Engineer & Data Scientist · MSc Computer Science",
+    "hero.statement": "Building intelligent systems through AI and data science.",
+    "hero.lead": "Specialising in Web Intelligence and Data Science at Université Sidi Mohamed Ben Abdellah, in a double-degree programme with Université Sorbonne Paris Nord. My interests include machine learning, computer vision and LLM-powered applications.",
+    "hero.availability": "Seeking a final-year internship in France or internationally",
+    "hero.readCv": "View my CV", "hero.cv": "Download my CV",
+    "hero.projects": "View projects", "hero.email": "Get in touch",
+    "hero.demo": "Explore an interactive KNN demo",
+    "hero.hint": "Hover over the background: a query point is classified by its k nearest neighbours. Click to add a point.",
+    "hero.k": "k neighbours", "hero.kGroup": "Select the number of neighbours", "hero.reset": "Reset",
     "projects.label": "Projects",
     "projects.keyboard": "Displayed project. Use the left and right arrow keys to navigate.",
+    "projects.intro": "Selected case studies: context, technical approach and tools used.",
     "project.description": "Description", "project.highlights": "What I did",
     "project.tech": "Technologies and methods", "projects.previous": "Previous",
     "projects.next": "Next", "projects.choose": "Choose a project",
     "projects.dot1": "Project 1", "projects.dot2": "Project 2", "projects.dot3": "Project 3",
     "projects.hint": "Swipe to discover the next project, or use the keyboard arrows.",
+    "projects.dot4": "Project 4",
+    "project.github": "View source on GitHub",
+    "project.screens": "View project screenshots",
+    "rag.meta": "AI assistant · Python & Java",
+    "rag.title": "RAG-based code generation assistant",
+    "rag.desc": "An application that retrieves relevant code examples from a local knowledge base before generating a contextual response in Python or Java.",
+    "rag.architecture": "Verified system architecture",
+    "rag.indexLane": "Index preparation",
+    "rag.data": "Code examples", "rag.chunk": "Chunking",
+    "rag.embed": "Embeddings", "rag.store": "Vector index",
+    "rag.queryLane": "Query workflow",
+    "rag.question": "Question", "rag.language": "Language detection",
+    "rag.search": "Retrieval", "rag.filter": "Similarity · metadata filtering · Top-K",
+    "rag.prompt": "Context + prompt", "rag.context": "Prompt construction",
+    "rag.generation": "Code generation", "rag.response": "Interactive response",
+    "darija.meta": "Personal project · Multi-platform application",
+    "darija.title": "English ↔ Moroccan Darija translator",
+    "darija.desc": "An English–Moroccan Darija translation application comprising a Java API, a desktop client and a Chrome extension.",
+    "darija.a": "Integrated the Gemini API for bidirectional translation and Arabic right-to-left text support.",
+    "darija.b": "Built a Java Swing desktop client and a Manifest V3 Chrome extension.",
+    "darija.demo": "Watch the video demo",
+    "iris.meta": "2023–2024 · Bachelor’s final project",
+    "iris.title": "Iris biometric recognition",
+    "iris.desc": "Designed an iris biometric recognition system based on convolutional neural networks.",
+    "iris.a": "Preprocessed iris images to prepare data for model training.",
+    "iris.b": "Trained and integrated a CNN model into the recognition system.",
+    "experience.label": "Professional experience",
+    "experience.city": "Morocco", "t2.period": "Summer 2024 · 2 months",
+    "experience.intro": "Contributed to operational monitoring and analysis of network equipment performance.",
+    "experience.one": "Monitored network equipment and contributed to preventive maintenance.",
+    "experience.two": "Analysed performance indicators and assisted with anomaly diagnosis.",
+    "experience.three": "Prepared technical reports.",
     "cert.open": "Open certificate ↗", "cert.view": "View certificate",
     "cert.viewOracle": "View the Oracle certificate full size",
     "cert.viewData": "View the Introduction to Data Science certificate full size",
@@ -35,29 +77,38 @@
     "cert.altOracle": "Oracle Certified Specialty certificate — Oracle Cloud Infrastructure for Sunbird Ed Specialty",
     "cert.altData": "Cisco Networking Academy certificate — Introduction to Data Science",
     "cert.altNetworking": "Cisco Networking Academy certificate — Networking Basics",
-    "p1.t": "Iris biometric recognition", "p1.m": "2023–2024 · Bachelor’s final project",
-    "p1.desc": "Design of an iris biometric recognition system using convolutional neural networks.",
-    "p1.a": "Preprocessed iris images to prepare the data for model training.",
-    "p1.b": "Trained and integrated a CNN model into the recognition system.",
     "p2.t": "Image classification: deep learning and machine learning",
     "p2.desc": "Comparative study of classification methods on an imbalanced medical image dataset using a shared evaluation protocol.",
     "p2.a": "Compared a custom CNN, VGG16, ResNet50 and a Vision Transformer.",
     "p2.b": "Extracted colour, texture and shape features, then evaluated KNN, SVM, decision trees and ensemble methods.",
+    "p1.t": "Iris biometric recognition", "p1.m": "2023–2024 · Bachelor’s final project",
+    "p1.a": "Biometric recognition system based on convolutional neural networks.",
+    "p1.b": "Image preprocessing, model training and integration.",
     "p3.t": "Intelligent code generation assistant",
     "p3.desc": "Developed an assistant that uses retrieval-augmented generation to help generate Python and Java code.",
     "p3.a": "Built semantic search using embeddings and a vector index.",
     "p3.b": "Connected Google Gemini and created an interactive Streamlit interface.",
-    "t1.t": "Bachelor’s degree, Mathematical Sciences and Computer Science",
-    "t2.t": "Network engineering intern, Inwi",
-    "t2.m": "Summer 2024 · two months · equipment monitoring, performance data analysis, technical reports",
-    "t3.t": "Master 1, AI and Data Science",
-    "t4.t": "Master 2, AI and Data Science",
-    "t4.m": "2026–2027 · USMBA, Fès · double degree with Université Sorbonne Paris Nord",
-    "s1": "Programming", "s2": "AI and machine learning", "s2d": "Classification, CNN, deep learning, model evaluation",
-    "s3": "LLMs and semantic search", "s4": "Libraries", "s5": "Tools", "s6": "Languages",
+    "t1.t": "Bachelor’s degree — Mathematical Sciences and Computer Science",
+    "t2.t": "Network Engineering Intern",
+    "t3.t": "Master 1 — Web Intelligence and Data Science",
+    "t4.t": "Master 2 in Computer Science — Web Intelligence and Data Science",
+    "t4.m": "2026–2027 · Université Sidi Mohamed Ben Abdellah, Fès · double degree with Université Sorbonne Paris Nord",
+    "skills.programming": "Programming",
+    "skills.ml": "Machine learning & deep learning",
+    "skills.data": "Data science & computer vision",
+    "skills.preprocessing": "Preprocessing",
+    "skills.features": "Feature extraction",
+    "skills.evaluation": "Model evaluation",
+    "skills.llm": "LLMs & intelligent systems",
+    "skills.search": "Semantic search",
+    "skills.tools": "Development & tools",
+    "skills.interests": "Areas of interest:",
+    "skills.interestList": "artificial intelligence, intelligent systems, knowledge graphs and applied research.",
+    "s6": "Languages",
     "s6d": "Arabic (native), French (B2), English (B2)",
     "c.t": "Certifications", "c.1": "Introduction to Data Science, Cisco (2025)", "c.2": "Networking Basics, Cisco (2025)",
-    "ct.p": "I am open to final-year internship offers in artificial intelligence and applied research."
+    "contact.headline": "Let’s build intelligent solutions together.",
+    "ct.p": "I am actively seeking a final-year internship in AI engineering, data science or applied AI research, in France or internationally."
   };
   var nodes = [].slice.call(document.querySelectorAll("[data-i18n]"));
   nodes.forEach(function (n) { n.dataset.fr = n.textContent; });
@@ -81,12 +132,35 @@
     });
     root.lang = l;
     langBtn.textContent = l === "en" ? "FR" : "EN";
+    updateMenuLabel();
     try { localStorage.setItem("lang", l); } catch (e) {}
   }
   langBtn.addEventListener("click", function () { setLang(root.lang === "en" ? "fr" : "en"); });
   var sl = null;
   try { sl = localStorage.getItem("lang"); } catch (e) {}
   if (sl === "en") setLang("en");
+
+  var menuToggle = document.getElementById("menu-toggle");
+  var mainNav = document.getElementById("main-nav");
+  function updateMenuLabel() {
+    if (!menuToggle) return;
+    var key = menuToggle.getAttribute("aria-expanded") === "true" ? "nav.closeMenu" : "nav.openMenu";
+    menuToggle.setAttribute("aria-label", (root.lang === "en" && EN[key]) ? EN[key] : (key === "nav.closeMenu" ? "Fermer le menu" : "Ouvrir le menu"));
+  }
+  updateMenuLabel();
+  menuToggle.addEventListener("click", function () {
+    var isOpen = menuToggle.getAttribute("aria-expanded") !== "true";
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    mainNav.classList.toggle("is-open", isOpen);
+    updateMenuLabel();
+  });
+  [].slice.call(mainNav.querySelectorAll("a")).forEach(function (link) {
+    link.addEventListener("click", function () {
+      menuToggle.setAttribute("aria-expanded", "false");
+      mainNav.classList.remove("is-open");
+      updateMenuLabel();
+    });
+  });
 
   /* ---------- Carrousel de projets ---------- */
   document.getElementById("project-carousel").hidden = false;
@@ -191,7 +265,7 @@
     var col = colors(), cell = 22;
     bg.width = W * dpr; bg.height = H * dpr;
     bctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    bctx.globalAlpha = 0.13;
+    bctx.globalAlpha = 0.055;
     for (var y = 0; y < H; y += cell) {
       for (var x = 0; x < W; x += cell) {
         bctx.fillStyle = col[classify(x + cell / 2, y + cell / 2).c];
