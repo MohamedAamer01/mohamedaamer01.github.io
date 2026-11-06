@@ -28,6 +28,13 @@
     "projects.next": "Next", "projects.choose": "Choose a project",
     "projects.dot1": "Project 1", "projects.dot2": "Project 2", "projects.dot3": "Project 3",
     "projects.hint": "Swipe to discover the next project, or use the keyboard arrows.",
+    "cert.open": "Open certificate ↗", "cert.view": "View certificate",
+    "cert.viewOracle": "View the Oracle certificate full size",
+    "cert.viewData": "View the Introduction to Data Science certificate full size",
+    "cert.viewNetworking": "View the Networking Basics certificate full size",
+    "cert.altOracle": "Oracle Certified Specialty certificate — Oracle Cloud Infrastructure for Sunbird Ed Specialty",
+    "cert.altData": "Cisco Networking Academy certificate — Introduction to Data Science",
+    "cert.altNetworking": "Cisco Networking Academy certificate — Networking Basics",
     "p1.t": "Iris biometric recognition", "p1.m": "2023–2024 · Bachelor’s final project",
     "p1.desc": "Design of an iris biometric recognition system using convolutional neural networks.",
     "p1.a": "Preprocessed iris images to prepare the data for model training.",
@@ -56,6 +63,8 @@
   nodes.forEach(function (n) { n.dataset.fr = n.textContent; });
   var ariaNodes = [].slice.call(document.querySelectorAll("[data-i18n-aria]"));
   ariaNodes.forEach(function (n) { n.dataset.frAria = n.getAttribute("aria-label"); });
+  var altNodes = [].slice.call(document.querySelectorAll("[data-i18n-alt]"));
+  altNodes.forEach(function (n) { n.dataset.frAlt = n.getAttribute("alt"); });
   var langBtn = document.getElementById("lang");
   function setLang(l) {
     nodes.forEach(function (n) {
@@ -65,6 +74,10 @@
     ariaNodes.forEach(function (n) {
       var key = n.getAttribute("data-i18n-aria");
       n.setAttribute("aria-label", (l === "en" && EN[key]) ? EN[key] : n.dataset.frAria);
+    });
+    altNodes.forEach(function (n) {
+      var key = n.getAttribute("data-i18n-alt");
+      n.setAttribute("alt", (l === "en" && EN[key]) ? EN[key] : n.dataset.frAlt);
     });
     root.lang = l;
     langBtn.textContent = l === "en" ? "FR" : "EN";
