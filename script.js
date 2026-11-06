@@ -21,15 +21,25 @@
     "hero.readCv": "View my CV", "hero.cv": "Download my CV", "hero.contact": "Contact me",
     "hero.hint": "Hover the background: a query point is classified by its k nearest neighbours. Click to add a point.",
     "hero.k": "k neighbours", "hero.reset": "Reset",
-    "p1.t": "Iris biometric recognition", "p1.m": "2023–2024, bachelor’s final project",
-    "p1.a": "Biometric recognition system based on convolutional neural networks.",
-    "p1.b": "Image preprocessing, model training and integration.",
+    "projects.label": "Projects",
+    "projects.keyboard": "Displayed project. Use the left and right arrow keys to navigate.",
+    "project.description": "Description", "project.highlights": "What I did",
+    "project.tech": "Technologies and methods", "projects.previous": "Previous",
+    "projects.next": "Next", "projects.choose": "Choose a project",
+    "projects.dot1": "Project 1", "projects.dot2": "Project 2", "projects.dot3": "Project 3",
+    "projects.hint": "Swipe to discover the next project, or use the keyboard arrows.",
+    "p1.t": "Iris biometric recognition", "p1.m": "2023–2024 · Bachelor’s final project",
+    "p1.desc": "Design of an iris biometric recognition system using convolutional neural networks.",
+    "p1.a": "Preprocessed iris images to prepare the data for model training.",
+    "p1.b": "Trained and integrated a CNN model into the recognition system.",
     "p2.t": "Image classification: deep learning and machine learning",
-    "p2.a": "Comparison of a custom CNN, VGG16, ResNet50 and a Vision Transformer on an imbalanced medical image set, with a common evaluation protocol.",
-    "p2.b": "Colour, texture and shape features, then KNN, SVM, decision trees and ensemble methods (Bagging, Boosting, Stacking).",
+    "p2.desc": "Comparative study of classification methods on an imbalanced medical image dataset using a shared evaluation protocol.",
+    "p2.a": "Compared a custom CNN, VGG16, ResNet50 and a Vision Transformer.",
+    "p2.b": "Extracted colour, texture and shape features, then evaluated KNN, SVM, decision trees and ensemble methods.",
     "p3.t": "Intelligent code generation assistant",
-    "p3.a": "Python and Java code generation assistant based on retrieval-augmented generation (RAG).",
-    "p3.b": "Semantic embeddings, FAISS index, Google Gemini and a Streamlit interface.",
+    "p3.desc": "Developed an assistant that uses retrieval-augmented generation to help generate Python and Java code.",
+    "p3.a": "Built semantic search using embeddings and a vector index.",
+    "p3.b": "Connected Google Gemini and created an interactive Streamlit interface.",
     "t1.t": "Bachelor’s degree, Mathematical Sciences and Computer Science",
     "t2.t": "Network engineering intern, Inwi",
     "t2.m": "Summer 2024 · two months · equipment monitoring, performance data analysis, technical reports",
@@ -44,11 +54,17 @@
   };
   var nodes = [].slice.call(document.querySelectorAll("[data-i18n]"));
   nodes.forEach(function (n) { n.dataset.fr = n.textContent; });
+  var ariaNodes = [].slice.call(document.querySelectorAll("[data-i18n-aria]"));
+  ariaNodes.forEach(function (n) { n.dataset.frAria = n.getAttribute("aria-label"); });
   var langBtn = document.getElementById("lang");
   function setLang(l) {
     nodes.forEach(function (n) {
       var key = n.getAttribute("data-i18n");
       n.textContent = (l === "en" && EN[key]) ? EN[key] : n.dataset.fr;
+    });
+    ariaNodes.forEach(function (n) {
+      var key = n.getAttribute("data-i18n-aria");
+      n.setAttribute("aria-label", (l === "en" && EN[key]) ? EN[key] : n.dataset.frAria);
     });
     root.lang = l;
     langBtn.textContent = l === "en" ? "FR" : "EN";
@@ -58,6 +74,60 @@
   var sl = null;
   try { sl = localStorage.getItem("lang"); } catch (e) {}
   if (sl === "en") setLang("en");
+
+  /* ---------- Carrousel de projets ---------- */
+  document.getElementById("project-carousel").hidden = false;
+  var projectViewport = document.getElementById("project-viewport");
+  var projectSlides = [].slice.call(document.querySelectorAll(".project-slide"));
+  var projectDots = [].slice.call(document.querySelectorAll(".project-dot"));
+  var projectCount = document.getElementById("project-count");
+  var activeProject = 0, touchStart = null;
+
+  function showProject(index) {
+    activeProject = (index + projectSlides.length) % projectSlides.length;
+    projectSlides.forEach(function (slide, i) {
+      slide.hidden = i !== activeProject;
+      slide.setAttribute("aria-label", (i + 1) + " / " + projectSlides.length);
+    });
+    projectDots.forEach(function (dot, i) {
+      dot.setAttribute("aria-current", String(i === activeProject));
+    });
+    projectCount.textContent = (activeProject + 1) + " / " + projectSlides.length;
+  }
+
+  document.getElementById("project-prev").addEventListener("click", function () {
+    showProject(activeProject - 1);
+  });
+  document.getElementById("project-next").addEventListener("click", function () {
+    showProject(activeProject + 1);
+  });
+  projectDots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      showProject(parseInt(dot.dataset.project, 10));
+    });
+  });
+  projectViewport.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      showProject(activeProject + 1);
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      showProject(activeProject - 1);
+    }
+  });
+  projectViewport.addEventListener("pointerdown", function (e) {
+    if (e.pointerType === "touch") touchStart = { x: e.clientX, y: e.clientY };
+  });
+  projectViewport.addEventListener("pointerup", function (e) {
+    if (!touchStart) return;
+    var dx = e.clientX - touchStart.x;
+    var dy = e.clientY - touchStart.y;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      showProject(activeProject + (dx < 0 ? 1 : -1));
+    }
+    touchStart = null;
+  });
+  projectViewport.addEventListener("pointercancel", function () { touchStart = null; });
 
   /* ---------- Démo k-NN ---------- */
   var cv = document.getElementById("knn");

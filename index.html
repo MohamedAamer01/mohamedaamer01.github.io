@@ -57,6 +57,67 @@
   <div class="wrap">
     <section id="projets">
       <h2 data-i18n="nav.projects">Projets</h2>
+      <div class="project-carousel" id="project-carousel" role="region" aria-roledescription="carousel" aria-label="Projets" data-i18n-aria="projects.label" hidden>
+        <div class="project-viewport" id="project-viewport" tabindex="0" aria-label="Projet affiché. Utilisez les flèches gauche et droite pour naviguer." data-i18n-aria="projects.keyboard">
+          <article class="card project-slide" role="group" aria-roledescription="diapositive" aria-label="1 / 3">
+            <div class="project-topline"><span class="project-number">01</span><p class="meta" data-i18n="p1.m">2023–2024 · Projet de fin de licence</p></div>
+            <h3 data-i18n="p1.t">Reconnaissance biométrique de l’iris</h3>
+            <h4 data-i18n="project.description">Description</h4>
+            <p data-i18n="p1.desc">Conception d’un système de reconnaissance biométrique de l’iris basé sur les réseaux de neurones convolutifs.</p>
+            <h4 data-i18n="project.highlights">Travail réalisé</h4>
+            <ul class="project-points">
+              <li data-i18n="p1.a">Prétraitement des images d’iris pour préparer les données à l’apprentissage.</li>
+              <li data-i18n="p1.b">Entraînement et intégration d’un modèle CNN dans le système de reconnaissance.</li>
+            </ul>
+            <div class="project-tech">
+              <h4 data-i18n="project.tech">Technologies et méthodes</h4>
+              <ul class="tags"><li>Python</li><li>TensorFlow</li><li>OpenCV</li><li>CNN</li></ul>
+            </div>
+          </article>
+          <article class="card project-slide" role="group" aria-roledescription="diapositive" aria-label="2 / 3" hidden>
+            <div class="project-topline"><span class="project-number">02</span><p class="meta">2026</p></div>
+            <h3 data-i18n="p2.t">Classification d’images : deep learning et machine learning</h3>
+            <h4 data-i18n="project.description">Description</h4>
+            <p data-i18n="p2.desc">Étude comparative de méthodes de classification sur un jeu d’images médicales déséquilibré, avec un protocole d’évaluation commun.</p>
+            <h4 data-i18n="project.highlights">Travail réalisé</h4>
+            <ul class="project-points">
+              <li data-i18n="p2.a">Comparaison d’un CNN personnalisé, de VGG16, de ResNet50 et d’un Vision Transformer.</li>
+              <li data-i18n="p2.b">Extraction de caractéristiques de couleur, texture et forme, puis évaluation de KNN, SVM, arbres de décision et méthodes d’ensemble.</li>
+            </ul>
+            <div class="project-tech">
+              <h4 data-i18n="project.tech">Technologies et méthodes</h4>
+              <ul class="tags"><li>Python</li><li>scikit-learn</li><li>TensorFlow</li><li>VGG16</li><li>ResNet50</li><li>ViT</li><li>KNN</li><li>SVM</li><li>Arbres de décision</li><li>Bagging</li><li>Boosting</li><li>Stacking</li></ul>
+            </div>
+          </article>
+          <article class="card project-slide" role="group" aria-roledescription="diapositive" aria-label="3 / 3" hidden>
+            <div class="project-topline"><span class="project-number">03</span><p class="meta">2026</p></div>
+            <h3 data-i18n="p3.t">Assistant intelligent de génération de code</h3>
+            <h4 data-i18n="project.description">Description</h4>
+            <p data-i18n="p3.desc">Développement d’un assistant qui s’appuie sur la génération augmentée par récupération pour aider à générer du code en Python et en Java.</p>
+            <h4 data-i18n="project.highlights">Travail réalisé</h4>
+            <ul class="project-points">
+              <li data-i18n="p3.a">Mise en place d’une recherche sémantique à partir d’embeddings et d’un index vectoriel.</li>
+              <li data-i18n="p3.b">Connexion à Google Gemini et création d’une interface interactive avec Streamlit.</li>
+            </ul>
+            <div class="project-tech">
+              <h4 data-i18n="project.tech">Technologies et méthodes</h4>
+              <ul class="tags"><li>Python</li><li>Java</li><li>RAG</li><li>Embeddings</li><li>FAISS</li><li>Google Gemini</li><li>Streamlit</li></ul>
+            </div>
+          </article>
+        </div>
+        <div class="project-controls">
+          <button class="mini project-nav" id="project-prev" type="button" aria-label="Projet précédent" data-i18n-aria="projects.previous"><span aria-hidden="true">←</span><span data-i18n="projects.previous">Précédent</span></button>
+          <div class="project-indicators" role="group" aria-label="Choisir un projet" data-i18n-aria="projects.choose">
+            <button class="project-dot" type="button" data-project="0" aria-label="Projet 1" aria-current="true" data-i18n-aria="projects.dot1"></button>
+            <button class="project-dot" type="button" data-project="1" aria-label="Projet 2" aria-current="false" data-i18n-aria="projects.dot2"></button>
+            <button class="project-dot" type="button" data-project="2" aria-label="Projet 3" aria-current="false" data-i18n-aria="projects.dot3"></button>
+          </div>
+          <output class="project-count" id="project-count" aria-live="polite" aria-atomic="true">1 / 3</output>
+          <button class="mini project-nav" id="project-next" type="button" aria-label="Projet suivant" data-i18n-aria="projects.next"><span data-i18n="projects.next">Suivant</span><span aria-hidden="true">→</span></button>
+        </div>
+        <p class="project-hint" data-i18n="projects.hint">Balayez pour découvrir le projet suivant, ou utilisez les flèches du clavier.</p>
+      </div>
+      <noscript>
       <div class="grid">
         <article class="card">
           <h3 data-i18n="p1.t">Reconnaissance biométrique de l’iris</h3>
@@ -86,6 +147,7 @@
           <ul class="tags"><li>RAG</li><li>FAISS</li><li>Gemini</li><li>Streamlit</li></ul>
         </article>
       </div>
+      </noscript>
     </section>
 
     <section id="parcours">

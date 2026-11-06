@@ -276,6 +276,151 @@ h3 {
   gap: 1.15rem;
 }
 
+.project-carousel {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.project-viewport {
+  outline: none;
+  touch-action: pan-y;
+}
+
+.project-viewport:focus-visible {
+  border-radius: 14px;
+}
+
+.project-slide[hidden] {
+  display: none;
+}
+
+.project-slide {
+  min-height: 390px;
+  padding: clamp(1.35rem, 4vw, 2.5rem);
+  animation: project-enter 0.28s ease both;
+}
+
+@keyframes project-enter {
+  from {
+    opacity: 0.55;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.project-topline {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.9rem;
+}
+
+.project-topline .meta {
+  margin: 0;
+}
+
+.project-number {
+  display: grid;
+  width: 2.45rem;
+  height: 2.45rem;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--a);
+  background: color-mix(in srgb, var(--a) 10%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--a) 20%, var(--line));
+  border-radius: 50%;
+  font: 700 0.82rem var(--head);
+}
+
+.project-slide h3 {
+  margin-bottom: 1.4rem;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+}
+
+.project-slide h4 {
+  margin: 1.2rem 0 0.35rem;
+  color: var(--a);
+  font: 700 0.86rem var(--head);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-slide > p:not(.meta) {
+  max-width: 68ch;
+  margin: 0;
+  color: var(--muted);
+}
+
+.project-points {
+  display: grid;
+  gap: 0.4rem;
+  padding-left: 1.15rem;
+  margin: 0;
+}
+
+.project-tech {
+  margin-top: 1.35rem;
+}
+
+.project-tech h4 {
+  margin-top: 0;
+}
+
+.project-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.1rem;
+}
+
+.project-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.project-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-left: auto;
+}
+
+.project-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  padding: 0;
+  background: var(--line);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.project-dot[aria-current="true"] {
+  background: var(--a);
+  transform: scale(1.25);
+}
+
+.project-count {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-hint {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
 .card {
   padding: 1.5rem;
   background: var(--card);
@@ -452,12 +597,31 @@ footer {
   .card {
     padding: 1.25rem;
   }
+
+  .project-slide {
+    min-height: 0;
+    padding: 1.25rem;
+  }
+
+  .project-controls {
+    gap: 0.6rem;
+  }
+
+  .project-nav {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .project-indicators {
+    gap: 0.45rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
+    animation: none !important;
     scroll-behavior: auto !important;
     transition: none !important;
   }
