@@ -18,7 +18,7 @@
     "nav.projects": "Projects", "nav.path": "Path", "nav.skills": "Skills", "nav.contact": "Contact",
     "hero.role": "Master’s student (M2), AI and Data Science",
     "hero.lead": "I build classification models and RAG systems. I am looking for a final-year internship (PFE) in AI and applied research.",
-    "hero.cv": "Download my CV", "hero.contact": "Contact me",
+    "hero.readCv": "View my CV", "hero.cv": "Download my CV", "hero.contact": "Contact me",
     "hero.hint": "Hover the background: a query point is classified by its k nearest neighbours. Click to add a point.",
     "hero.k": "k neighbours", "hero.reset": "Reset",
     "p1.t": "Iris biometric recognition", "p1.m": "2023–2024, bachelor’s final project",
